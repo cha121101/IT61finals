@@ -20,7 +20,7 @@ Route::get('/create' , [StudentController::class , 'create'])->name('create.stud
 Route::post('/store' , [StudentController::class , 'store'])->name('store.student');
 Route::post('/edit/{id}' , [StudentController::class , 'edit'])->name('edit.student');
 Route::post('/update/{id}' , [StudentController::class , 'update'])->name('update.student');
-Route::post('/delete/{id}' , [StudentController::class , 'destroy'])->name('delete.student');
+Route::delete('/delete/{id}' , [StudentController::class , 'destroy'])->name('delete.student');
 
 
 

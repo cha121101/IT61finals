@@ -10,7 +10,7 @@
 <body>
 <center>
         @foreach ($student as $key => $value )
-        <form class="w-full max-w-lg py-10 pl-10 my-28 border-solid border-2 border-sky-500 " action="{{ route('store.student')}}" method="post">
+        <form class="w-full max-w-lg py-10 pl-10 my-28 border-solid border-2 border-sky-500 " action="{{ route('update.student' , ['id' => $value->id])}}" method="post">
             @csrf
             <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -84,7 +84,7 @@
                     </div>
                     <div class="w-full md:w-1/3 px-3 mb-6 mt-1 ml-20 md:mb-0">
                         <button type="submit"  class="bg-transparent justify-end hover:bg-blue-500 text-blue-700 font-semibold hover:text-white my-5 py-2 px-5 border border-blue-500 hover:border-transparent rounded">
-                            Add student
+                            Edit student
                         </button> 
                     </div>
             </div>

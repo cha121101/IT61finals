@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -57,7 +58,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('students')->where('id' , $request->id)->update(
+                [
+                    'studentname' => $request->studentname,
+                    'age' => $request->age,
+                    'yearandsection' => $request->yearandsection
+                ]
+                );
+        return redirect()->route('show.student');
     }
 
     /**
@@ -65,6 +73,7 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Students::destroy($id);
+        return redirect()->route('show.student');
     }
 }
