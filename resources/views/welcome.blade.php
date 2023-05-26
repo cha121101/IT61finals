@@ -13,9 +13,13 @@
         {{ $value->age }}
         {{ $value->studentname }}
         {{ $value->yearandsection }}
-
+    <form action=" {{ route('edit.student' , [ 'id' => $value->id ] ) }}" method="post">
+        @csrf
+        <button type="submit">Edit</button>
+    </form>
     @endforeach
     <form action="{{ route('create.student') }}" method="get">
+        @csrf
         <button type="submit">Create</button>
     </form>
 </body>

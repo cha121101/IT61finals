@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return 'Hello';
+        return view('create');
     }
 
     /**
@@ -31,6 +31,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        DB::insert('insert into students (age, studentname , yearandsection) values (?, ?, ?)', [$request->age , $request->studentname , $request->yearandsection]);
+        return redirect()->route('show.student');
     }
 
     /**
